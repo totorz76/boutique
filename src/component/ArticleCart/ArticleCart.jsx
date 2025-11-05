@@ -15,7 +15,7 @@ function ArticleCart(props) {
       <div>{values.price}</div>
       <div>-</div>
       <div>{props.item.qte}</div>
-      <div>+</div>
+      <div onClick={()=>boutiqueContext.addCart(props.item.id)}>+</div>
       <div>Total : {"??"}</div>
     </div>
   );
