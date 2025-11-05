@@ -3,12 +3,12 @@ import BoutiqueContext from "../../Context/BoutiqueContext";
 import ArticleCart from "../ArticleCart/ArticleCart"
 
 const Cart = () => {
-    const boutiqueContext = useContext(boutiqueContext);
+    const boutiqueContext = useContext(BoutiqueContext);
     if(boutiqueContext.cart.length){
         return(
             <div>
                 {
-                    boutiqueContext.cart.map((value, index)=><ArticleCart key={index} id={value}/>)
+                    boutiqueContext.cart.map((value, index)=><ArticleCart key={index} item={value}/>)
                 }
             </div>
         )
@@ -20,3 +20,4 @@ const Cart = () => {
         )
     }
 }
+export default Cart
