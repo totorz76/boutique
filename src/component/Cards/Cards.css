@@ -1,0 +1,9 @@
+.maCard{
+    width: 100%;
+    margin: .4rem;
+}
+@media screen and (min-width:576px){
+    .maCard{
+        width: 24%;
+    }
+}
