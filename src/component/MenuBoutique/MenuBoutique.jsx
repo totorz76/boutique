@@ -14,8 +14,9 @@ import MenuItem from '@mui/material/MenuItem';
 import GamepadIcon from '@mui/icons-material/Gamepad';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import TemporaryDrawer from '../Cart/Cart';
+import BoutiqueContext from '../../Context/BoutiqueContext';
 
-const pages = ['Products', 'Pricing', 'Blog'];
+const pages = ['Products', 'Panier',]
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function MenuBoutique() {
@@ -36,6 +37,7 @@ function MenuBoutique() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+  const boutiqueContext = React.useContext(BoutiqueContext);
 
   return (
     <AppBar position="static" sx ={{backgroundColor : "black"}}>
@@ -128,7 +130,7 @@ function MenuBoutique() {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip >
               <IconButton sx={{ p: 0 }}>
-                <ShoppingCartIcon  sx={{color:"white", marginRight:".5rem"}}>
+                <ShoppingCartIcon onClick={()=>boutiqueContext.showHideCart()} sx={{color:"white", marginRight:".5rem"}}>
                 </ShoppingCartIcon>
               </IconButton>
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>

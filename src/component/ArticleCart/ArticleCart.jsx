@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import BoutiqueContext from "../../Context/BoutiqueContext";
+import DeleteIcon from '@mui/icons-material/Delete';
 
 function ArticleCart(props) {
   const boutiqueContext = useContext(BoutiqueContext);
@@ -13,10 +14,11 @@ function ArticleCart(props) {
       </div>
       <div>{values.name}</div>
       <div>{values.price}</div>
-      <div>-</div>
+      <div onClick={()=>boutiqueContext.removeFromCart(props.item.id)}>-</div>
       <div>{props.item.qte}</div>
       <div onClick={()=>boutiqueContext.addCart(props.item.id)}>+</div>
-      <div>Total : {"??"}</div>
+      <div>Total : {props.item.qte * values.price}</div>
+      <div><DeleteIcon onClick={()=>boutiqueContext.removeAll(props.item.id)}></DeleteIcon></div>
     </div>
   );
 }
